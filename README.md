@@ -41,7 +41,7 @@ Since this fork is not published on pub.dev, add it to your `pubspec.yaml` as a 
 dependencies:
   ar_flutter_plugin:
     git:
-      url: https://github.com/<your-github-username>/ar_flutter_plugin.git
+      url: https://github.com/FriedrichWimmer/ar_flutter_plugin.git
       ref: main  # or a specific branch/commit hash
 ```
 
