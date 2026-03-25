@@ -18,7 +18,7 @@ class IosARView: NSObject, FlutterPlatformView, ARSCNViewDelegate, UIGestureReco
     var cancellableCollection = Set<AnyCancellable>() //Used to store all cancellables in (needed for working with Futures)
     var anchorCollection = [String: ARAnchor]() //Used to bookkeep all anchors created by Flutter calls
     
-    // private var cloudAnchorHandler: CloudAnchorHandler? = nil
+    //private var cloudAnchorHandler: CloudAnchorHandler? = nil
     // private var arcoreSession: GARSession? = nil
     private var arcoreMode: Bool = false
     private var configuration: ARWorldTrackingConfiguration!
@@ -325,7 +325,7 @@ class IosARView: NSObject, FlutterPlatformView, ARSCNViewDelegate, UIGestureReco
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         if (arcoreMode) {
             do {
-                try arcoreSession!.update(frame)
+                try print("One two three four five")
             } catch {
                 print(error)
             }
@@ -666,6 +666,8 @@ class IosARView: NSObject, FlutterPlatformView, ARSCNViewDelegate, UIGestureReco
             anchorCollection.removeValue(forKey: anchorName)
         }
     }
+
+}
 
 // ---------------------- ARCoachingOverlayViewDelegate ---------------------------------------
 
