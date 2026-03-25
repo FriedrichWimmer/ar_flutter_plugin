@@ -57,15 +57,13 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text(_title),
+        appBar: AppBar(title: const Text(_title)),
+        body: Column(
+          children: [
+            Text('Running on: $_platformVersion\n'),
+            Expanded(child: ExampleList()),
+          ],
         ),
-        body: Column(children: [
-          Text('Running on: $_platformVersion\n'),
-          Expanded(
-            child: ExampleList(),
-          ),
-        ]),
       ),
     );
   }
@@ -78,50 +76,68 @@ class ExampleList extends StatelessWidget {
   Widget build(BuildContext context) {
     final examples = [
       Example(
-          'Debug Options',
-          'Visualize feature points, planes and world coordinate system',
-          () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => DebugOptionsWidget()))),
+        'Debug Options',
+        'Visualize feature points, planes and world coordinate system',
+        () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => DebugOptionsWidget()),
+        ),
+      ),
       Example(
-          'Local & Online Objects',
-          'Place 3D objects from Flutter assets and the web into the scene',
-          () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => LocalAndWebObjectsWidget()))),
+        'Local & Online Objects',
+        'Place 3D objects from Flutter assets and the web into the scene',
+        () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => LocalAndWebObjectsWidget()),
+        ),
+      ),
       Example(
-          'Anchors & Objects on Planes',
-          'Place 3D objects on detected planes using anchors',
-          () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => ObjectsOnPlanesWidget()))),
+        'Anchors & Objects on Planes',
+        'Place 3D objects on detected planes using anchors',
+        () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ObjectsOnPlanesWidget()),
+        ),
+      ),
       Example(
-          'Object Transformation Gestures',
-          'Rotate and Pan Objects',
-          () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => ObjectGesturesWidget()))),
+        'Object Transformation Gestures',
+        'Rotate and Pan Objects',
+        () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ObjectGesturesWidget()),
+        ),
+      ),
       Example(
-          'Screenshots',
-          'Place 3D objects on planes and take screenshots',
-          () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => ScreenshotWidget()))),
+        'Screenshots',
+        'Place 3D objects on planes and take screenshots',
+        () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ScreenshotWidget()),
+        ),
+      ),
       Example(
-          'Cloud Anchors',
-          'Place and retrieve 3D objects using the Google Cloud Anchor API',
-          () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => CloudAnchorWidget()))),
+        'Cloud Anchors',
+        'Place and retrieve 3D objects using the Google Cloud Anchor API',
+        () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => CloudAnchorWidget()),
+        ),
+      ),
       Example(
-          'External Model Management',
-          'Similar to Cloud Anchors example, but uses external database to choose from available 3D models',
-          () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => ExternalModelManagementWidget())))
+        'External Model Management',
+        'Similar to Cloud Anchors example, but uses external database to choose from available 3D models',
+        () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ExternalModelManagementWidget(),
+          ),
+        ),
+      ),
     ];
     return ListView(
-      children:
-          examples.map((example) => ExampleCard(example: example)).toList(),
+      children: examples
+          .map((example) => ExampleCard(example: example))
+          .toList(),
     );
   }
 }
